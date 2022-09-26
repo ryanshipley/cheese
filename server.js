@@ -37,11 +37,13 @@ mongoose.connection
     .on("open", () => console.log("You are connected to mongoose"))
     .on("close", () => console.log("You are disconnected from mongoose"))
     .on("error", (error) => console.log(error));
-
+// Test Route
 app.get("/", (req, res)=>{
     res.send("hello sir");
 });
 
+
+//Index Route
 app.get("/cheese", async(req, res) =>{
     try{
         res.json(await Cheese.find({}));
@@ -50,6 +52,8 @@ app.get("/cheese", async(req, res) =>{
     };
 });
 
+
+//Create Route
 app.post("/cheese", async (req, res)=>{
     try{
         res.json(await Cheese.create(req.body));
